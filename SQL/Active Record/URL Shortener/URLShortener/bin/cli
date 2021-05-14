@@ -1,0 +1,61 @@
+#!/usr/bin/env ruby
+
+class CLI
+
+    def run
+        login_user!
+
+        menu
+
+    end
+
+    def login_user!
+        puts "Input your email:"
+        @current_user = User.find_by(email: gets.chomp)
+        
+        if @current_user.nil?
+            raise 'invalid user'
+        end
+
+        nil
+    end
+
+    def menu
+        puts "Choose your option:"
+        puts "1 - Visit a URL"
+        puts "2 - Create a new URL"
+        input = Integer(gets.chomp)
+
+        case input
+        when 1
+            visit
+        when 2
+            create
+        end
+    end
+
+    def create
+        puts "Input your long URL:"
+        long_url = gets.chomp
+        shortened_url = ShortenedUrl.new_with_user_and_long_url(@current_user, long_url)
+
+        puts "short URL is: #{shortened_url.short_url}"
+    end
+
+    def visit
+        puts "Input the shortened URL:"
+        input = gets.chomp
+
+        url = ShortenedUrl.find_by(short_url: input)
+
+        raise 'no such url' if url.nil?
+
+        Visit.record_visit!(@current_user, url)
+        Launchy.open(url.long_url)
+    end
+
+
+
+end
+
+CLI.new.run

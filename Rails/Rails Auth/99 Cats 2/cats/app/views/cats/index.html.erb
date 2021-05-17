@@ -8,5 +8,7 @@
     <% end %>
 
     <br>
-    <a href="<%= new_cat_url %>"><button>Create a New Cat!</button></a>
+    <% if current_user %>
+        <a href="<%= new_cat_url %>"><button>Create a New Cat!</button></a>
+    <% end %>
 </ul>

@@ -38,4 +38,20 @@ class User < ApplicationRecord
     def ensure_session_token
         self.session_token ||= self.class.generate_session_token
     end
+
+    has_many(
+        :cats,
+        class_name: 'Cat',
+        foreign_key: :user_id,
+        primary_key: :id,
+        dependent: :destroy
+    )
+
+    has_many(
+        :requests,
+        class_name: 'CatRentalRequest',
+        foreign_key: :user_id,
+        primary_key: :id,
+        dependent: :destroy
+    )
 end

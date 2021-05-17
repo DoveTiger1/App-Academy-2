@@ -1,5 +1,6 @@
-<h1>About <%= @cat.name %></h1>
+<% is_cat_owner = current_user && (current_user.id == @cat.user_id)%>
 
+<h1>About <%= @cat.name %></h1>
 
 <table border='2'>
     <thead>
@@ -12,6 +13,11 @@
         <tr>
             <td>Name:</td>
             <td><%= @cat.name %></td>
+        </tr>
+
+        <tr>
+            <td>Owner:</td>
+            <td><%= @cat.owner.user_name %></td>
         </tr>
 
         <tr>
@@ -46,7 +52,7 @@
 <table border='2'>
     <thead>
         <tr>
-            <th colspan = '8' bgcolor=#c0c0c0><%= @cat.name %>'s Rental Requests</th>
+            <th colspan = '10' bgcolor=#c0c0c0><%= @cat.name %>'s Rental Requests</th>
         </tr>
     </thead>
 
@@ -56,7 +62,9 @@
             <td bgcolor=1c1c1c1>Start Date: </td><td><%= rental.start_date %></td>
             <td bgcolor=#ff0000 >End Date: </td><td><%= rental.end_date %></td>
             <td bgcolor=#add8e6>Status: </td><td><%= rental.status %></td>
-            <% if rental.pending? %>
+            <td bgcolor=#add8e6>Requester: </td><td><%= rental.requester.user_name %></td>
+            
+            <% if rental.pending? && is_cat_owner%>
                 <%= render 'decide_rental', rental: rental %> 
             <% end %>
         </tr>
@@ -70,5 +78,9 @@
 
 
 <a href="<%= cats_url %>"><button>Back to Cats</button></a>
-<a href="<%= edit_cat_url(@cat) %>"><button>Edit this Cat</button></a>
-<a href="<%= new_cat_rental_request_url %>?cat_id=<%=@cat.id%>"><button>Make Rental Request</button></a>
+<% if is_cat_owner %> 
+    <a href="<%= edit_cat_url(@cat) %>"><button>Edit this Cat</button></a>
+<% end %>
+<% if !current_user.nil? %>
+    <a href="<%= new_cat_rental_request_url %>?cat_id=<%=@cat.id%>"><button>Make Rental Request</button></a>
+<% end %>

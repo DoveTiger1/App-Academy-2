@@ -1,12 +1,18 @@
 class CatRentalRequest < ApplicationRecord
     STATUSES = %w[PENDING APPROVED DENIED].freeze
 
-    validates :cat_id, :start_date, :end_date, :status, presence: true
+    validates :cat_id, :start_date, :end_date, :status, :user_id, presence: true
     validates :status, inclusion: {in: STATUSES, message: 'is not valid'}
     validate :doesnt_overlap
     validate :end_before_start
 
     belongs_to :cat
+    belongs_to(
+        :requester,
+        class_name: 'User',
+        foreign_key: :user_id,
+        primary_key: :id
+    )
 
     def approve!
         raise 'not pending!' if self.status != 'PENDING'

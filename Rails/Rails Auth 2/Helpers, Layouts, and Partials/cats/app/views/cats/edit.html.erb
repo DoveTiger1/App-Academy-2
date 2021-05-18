@@ -1,0 +1,7 @@
+<h1>Edit <%= @cat.name %>!</h1>
+
+<%= render 'form', cat: @cat %>
+
+<a href="<%= cat_url(@cat) %>"><button>Back to <%= @cat.name %></button></a>
+<br>
+<a href="<%= cats_url %>"><button>Back to Cats</button></a>

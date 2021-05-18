@@ -1,0 +1,19 @@
+<h1>Sign in!</h1>
+
+<form action="<%= session_url %>" method='post'>
+    <%= auth_token %>
+
+    
+    <label for="username">Username:</label>
+    <input type="text" name="user[user_name]" id="name" value="">
+    <br>
+
+    <label for="password">Password:</label>
+    <input type="password" name="user[password]" id="password">
+
+    <br>
+    <input type="submit" value="Login">
+</form>
+
+<br>
+<a href="<%= cats_url %>"><button>Back to Cats</button></a>

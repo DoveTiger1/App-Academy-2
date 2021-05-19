@@ -1,10 +1,13 @@
 class SessionsController < ApplicationController
+    before_action :require_no_user!, only: [:new, :create]
+    before_action :require_user!, only: [:destroy]
+
     def new
         render :new
     end
 
     def create
-        @user = User.find_by_credentials(user_params)
+        @user = User.find_by_credentials(params[:user][:email], params[:user][:password])
         
         if @user
             login_user!(@user)
@@ -19,11 +22,5 @@ class SessionsController < ApplicationController
         user.reset_session_token!
         session[:session_token] = nil
         redirect_to new_session_url
-    end
-
-    private
-
-    def user_params
-        params.require(:user).permit(:email, :password)
     end
 end

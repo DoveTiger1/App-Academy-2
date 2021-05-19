@@ -13,6 +13,8 @@ class User < ApplicationRecord
     def self.find_by_credentials(email, password)
         user = User.find_by(email: email)
 
+        return nil if user.nil?
+
         if user.is_password?(password)
             return user
         else
@@ -23,6 +25,7 @@ class User < ApplicationRecord
     def reset_session_token!
         self.session_token = self.class.generate_session_token
         self.save!
+        self.session_token
     end
 
     def ensure_session_token

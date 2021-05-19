@@ -13,7 +13,7 @@ class BandsController < ApplicationController
         @band = Band.new(band_params)
 
         if @band.save
-            render band_url(@band)
+            redirect_to band_url(@band)
         else
             render :new
         end

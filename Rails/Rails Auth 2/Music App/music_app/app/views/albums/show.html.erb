@@ -1,0 +1,16 @@
+<h1>About <%= @album.name %></h1>
+
+Album name: <%= @album.name %>
+<br>
+
+Year: <%= @album.year %>
+<br>
+
+Band: <%= @album.band.name %>
+<br>
+
+Live album?: <%= @album.live %>
+<br>
+
+<br>
+<a href="<%= band_url(@album.band) %>"><button>Back to <%= @album.band.name %></button></a>

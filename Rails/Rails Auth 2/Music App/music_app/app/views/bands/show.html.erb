@@ -3,7 +3,10 @@
 <p>Albums:</p>
 <ul>
     <% @band.albums.each do |album| %>
-        <li><%= album.name %> - <%= album.year %></li>
+        <li>
+        <%= album.name %> - <%= album.year %> 
+        <a href="<%= album_url(album) %>"><button>Album Page</button></a>
+        </li>
     <% end %>
 </ul>
 

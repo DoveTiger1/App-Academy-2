@@ -1,4 +1,4 @@
-<h1>About <%= @album.name %></h1>
+<h1>About <%= @album.name %> <%= '(Live)' if @album.live %></h1>
 
 Album name: <%= @album.name %>
 <br>
@@ -9,8 +9,7 @@ Year: <%= @album.year %>
 Band: <%= @album.band.name %>
 <br>
 
-Live album?: <%= @album.live %>
 <br>
+<a href="<%= edit_album_url(@album) %>"><button>Edit Album</button></a>
 
-<br>
 <a href="<%= band_url(@album.band) %>"><button>Back to <%= @album.band.name %></button></a>

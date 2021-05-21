@@ -1,4 +1,6 @@
 class AlbumsController < ApplicationController
+    before_action :require_user!
+
     def new
         @album = Album.new
         @album.band_id = params[:band_id]
@@ -22,8 +24,11 @@ class AlbumsController < ApplicationController
 
     def update
         @album = Album.find(params[:id])
-        @album.update_attributes!(album_params)
-        redirect_to album_url(@album)
+        if @album.update_attributes!(album_params)
+            redirect_to album_url(@album)
+        else
+            render :edit
+        end
     end
 
     def show

@@ -1,5 +1,8 @@
 <% action_url = @album.persisted? ? album_url(@album) : albums_url %>
 
+<% @album.errors.full_messages do |msg| %>
+    <li><%= msg %></li>
+<% end %>
 
 <form action="<%= action_url %>" method='post'>
 

@@ -1,4 +1,6 @@
 class BandsController < ApplicationController
+    before_action :require_user!
+
     def index
         @bands = Band.all
         render :index
@@ -31,8 +33,11 @@ class BandsController < ApplicationController
 
     def update
         @band = Band.find(params[:id])
-        @band.update_attributes!(band_params)
-        render :show
+        if @band.update_attributes!(band_params)
+            render :show
+        else
+            render :edit
+        end
     end
 
     def destroy

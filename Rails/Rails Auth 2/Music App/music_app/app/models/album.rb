@@ -3,4 +3,5 @@ class Album < ApplicationRecord
     validates :band_id, uniqueness: { scope: :name, message: 'band already has an album with that name'}
 
     belongs_to :band
+    has_many :tracks, dependent: :destroy
 end

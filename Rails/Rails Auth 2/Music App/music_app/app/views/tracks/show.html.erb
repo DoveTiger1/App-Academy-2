@@ -16,3 +16,15 @@ Lyrics:
 
 <a href="<%= edit_track_url(@track) %>"><button>Edit Track</button></a>
 <a href="<%= album_url(@track.album) %>"><button>Back to <%= @track.album.name %></button></a>
+<br>
+<br>
+
+
+Notes:
+<br>
+<% @track.notes.each do |note| %>
+    <%= render 'notes/note', note: note %>
+<% end %>
+
+<br>
+<%= render 'notes/form' %>

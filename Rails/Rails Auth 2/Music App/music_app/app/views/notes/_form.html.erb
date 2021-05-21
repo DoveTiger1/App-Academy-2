@@ -1,0 +1,12 @@
+<form action="<%= notes_url %>" method='post'>
+    <%= auth_token %>
+    
+    <input type="hidden" name="note[track_id]" value=<%= params[:id] %>>
+
+    <label for="body">Leave a note:</label>
+    <br>
+    <textarea name="note[body]" id="body" cols="30" rows="3"></textarea>
+    <br>
+
+    <input type="submit" value="Leave Note">
+</form>

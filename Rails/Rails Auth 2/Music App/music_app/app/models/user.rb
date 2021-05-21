@@ -40,4 +40,12 @@ class User < ApplicationRecord
     def is_password?(password)
         BCrypt::Password.new(self.password_digest).is_password?(password)
     end
+
+    has_many(
+        :notes,
+        class_name: 'Note',
+        foreign_key: :user_id,
+        primary_key: :id,
+        dependent: :destroy
+    )
 end

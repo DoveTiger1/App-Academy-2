@@ -11,7 +11,7 @@ class UsersController < ApplicationController
 
         if @user.save
             login_user!(@user)
-            redirect_to user_url(@user)
+            redirect_to bands_url
         else
             render :new
         end

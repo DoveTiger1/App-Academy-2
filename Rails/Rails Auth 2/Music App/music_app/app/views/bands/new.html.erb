@@ -1,5 +1,9 @@
 <h1>Submit a new band!</h1>
 
+<% @band.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+<% end %>
+
 <form action="<%= bands_url %>" method='post'>
 
     <%= auth_token %>

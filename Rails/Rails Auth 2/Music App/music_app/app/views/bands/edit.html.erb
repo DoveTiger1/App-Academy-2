@@ -1,5 +1,9 @@
 <h1>Edit <%= @band.name %></h1>
 
+<% @band.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+<% end %>
+
 <form action="<%= band_url(@band) %>" method='post'>
     <input type="hidden" name="_method" value='patch'>
 

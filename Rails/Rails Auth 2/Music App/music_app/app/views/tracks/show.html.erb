@@ -11,7 +11,7 @@ Album: <%= @track.album.name %>
 
 Lyrics:
 <br>
-<p><%= @track.lyrics %></p>
+<p><%= ugly_lyrics(@track.lyrics) %></p>
 <br>
 
 <a href="<%= edit_track_url(@track) %>"><button>Edit Track</button></a>

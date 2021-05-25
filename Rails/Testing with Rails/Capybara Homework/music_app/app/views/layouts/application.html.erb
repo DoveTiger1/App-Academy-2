@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MusicApp</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <h1>Music App</h1>
+    <div>
+      <%= render 'layouts/logform' %>
+    </div>
+
+    <%= yield %>
+
+    <footer>
+      <p>MusicApp is a Project for App Academy Open.</p>
+      <p>Feel Free to browse!</p> 
+
+      <%= yield :footer %>
+    </footer>
+  </body>
+</html>

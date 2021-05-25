@@ -1,0 +1,50 @@
+<% action_url = @track.persisted? ? track_url(@track) : tracks_url %>
+
+<% @track.errors.full_messages do |msg| %>
+    <li><%= msg %></li>
+<% end %>
+
+
+<form action="<%= action_url %>" method='post'>
+
+    <% if @track.persisted? %>
+        <input type="hidden" name="_method" value='patch'>
+    <% end %>
+
+    <%= auth_token %>
+
+    <label for="name">Track Title:</label>
+    <input type="text" name="track[title]" id="name" value='<%= @track.title %>'>
+    <br>
+
+    <label for="ord">Number:</label>
+    <input type="number" name="track[ord]" id="ord" value='<%= @track.ord %>'>
+    <br>
+
+    <label for="album">Album:</label>
+    <select name="track[album_id]" id="album">
+        <% @track.album.band.albums.each do |album| %>
+            <option value="<%= album.id %>" <%= "selected" if album.id == track.album_id %>><%= album.name %></option>
+        <% end %>
+    </select>
+    <br>
+
+    <br>
+    Is the Track a bonus track?
+    <br>
+    <label for="normal">Normal</label>
+    <input type="radio" name="track[is_bonus]" id="normal" value='false' <%= 'checked' if @track.is_bonus != true %>>
+    <br>
+    <label for="bonus">Bonus</label>
+    <input type="radio" name="track[is_bonus]" id="bonus" value='true' <%= 'checked' if @track.is_bonus == true %>>
+    <br>
+    <br>
+
+    <label for="lyrics">Lyrics: </label>
+    <br><textarea name="track[lyrics]" id="lyrics" cols="30" rows="10"><%= @track.lyrics %></textarea>
+    <br>
+
+    <input type="submit" value="<%= @track.persisted? ? 'Update' : 'Submit' %> Track">
+</form>
+
+<a href="<%=@track.persisted? ? track_url(@track) : album_url(@track.album) %>"><button>Cancel</button></a>

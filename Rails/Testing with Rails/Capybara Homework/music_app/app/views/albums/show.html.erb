@@ -1,0 +1,26 @@
+<h1>About <%= @album.name %> <%= '(Live)' if @album.live %></h1>
+
+Album name: <%= @album.name %>
+<br>
+
+Year: <%= @album.year %>
+<br>
+
+Band: <%= @album.band.name %>
+<br>
+
+Tracks:
+<br>
+<ul>
+    <% @album.tracks.each do |track| %>
+        <li>
+        <%= track.ord %> - <%= track.title %>
+        <a href="<%= track_url(track) %>"><button>Track Page</button></a>
+        </li>
+    <% end %>
+</ul>
+
+<br>
+<a href="<%= edit_album_url(@album) %>"><button>Edit Album</button></a>
+<a href="<%= new_album_track_url(@album) %>"><button>Input New Track</button></a>
+<a href="<%= band_url(@album.band) %>"><button>Back to <%= @album.band.name %></button></a>

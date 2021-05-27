@@ -2,7 +2,7 @@
 
 .header-logo {
     float: left;
-    border-right: solid 1px #eee;
+    border-right: solid 1px #ccc;
     font-weight: 700;
 }
 
@@ -16,7 +16,7 @@
 
 .header-list > li {
     float: left;
-    border-left: solid 1px #eee;
+    border-left: solid 1px #ccc;
 
 }
 

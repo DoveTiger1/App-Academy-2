@@ -14,11 +14,13 @@ body {
 }
 
 .header a {
-    display: block;
+    display: inline-block;
     padding: 10px 20px;
 }
 
 .header-nav {
+    display: flex;
+    justify-content: space-between;
     margin: 0 auto;
     width: 900px;
     border-left: 1px solid white;
@@ -26,8 +28,8 @@ body {
 }
 
 .header-logo {
+    display: inline-block;
     font-weight: 700;
-    float: left;
     border-right: 1px solid white;
 }
 
@@ -36,11 +38,11 @@ body {
 }
 
 .header-list {
-    float: right;
+    display: flex;
 }
 
 .header-list > li {
-    float: left;
+    display: inline-block;
     border-left: 1px solid white;
 }
 

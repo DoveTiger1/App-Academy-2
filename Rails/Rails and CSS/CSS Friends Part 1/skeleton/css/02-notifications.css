@@ -10,3 +10,36 @@
 .header-list > li:hover .badge {
     background-color: red;
 }
+
+.header-list > li:hover .header-notifications {
+    display: block;
+}
+
+.header-list {
+    position: relative;
+}
+
+.header {
+    position: relative;
+    z-index: 1;
+}
+
+.header-notifications{
+    display: none;
+    border: lightgray 1px solid;
+    border-radius: 5%;
+    position: absolute;
+    top: 39px;
+    background-color: white;
+    color: #000;
+    font-size: 14px;
+}
+
+.header-notifications > li{
+    border-bottom: lightgray 1px solid;
+    white-space: nowrap;
+}
+
+.header-notifications > li:hover{
+    background: #eee;
+}

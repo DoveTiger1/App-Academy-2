@@ -1,1 +1,12 @@
 /* PHASE 2: Notifications */
+
+.badge {
+    display: inline-block;
+    background-color: black;
+    padding: 0px 5px;
+    border-radius: 50%;
+}
+
+.header-list > li:hover .badge {
+    background-color: red;
+}

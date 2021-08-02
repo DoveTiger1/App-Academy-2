@@ -19,3 +19,15 @@
     font-weight: 400;
     line-height: 1;;
 }
+
+.content-header > button {
+    color: #000;
+    background-color: #fff;
+    font-weight: bold;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 10px 20px;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}

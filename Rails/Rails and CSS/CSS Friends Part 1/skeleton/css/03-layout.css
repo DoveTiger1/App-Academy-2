@@ -8,18 +8,18 @@
     border-bottom: 1px solid #ccc;
     border-right: 1px solid #ccc;
     display: flex;
-
+    flex-wrap: wrap;
 }
 
 .content-sidebar {
     min-height: 200px;
-    width: 200px;
+    min-width: 200px;
     padding: 20px;
 }
 
 .content-main {
     min-height: 200px;
-    width: 620px;
+    min-width: 619px;
     padding: 20px;
     border-left: 1px solid #ccc;
 }

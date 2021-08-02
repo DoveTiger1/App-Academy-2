@@ -20,6 +20,10 @@
     font-size: 14px;
 }
 
+.footer a:hover{
+    color: black;
+}
+
 .footer-copyright {
     display: inline-block;
     padding: 10px 20px;

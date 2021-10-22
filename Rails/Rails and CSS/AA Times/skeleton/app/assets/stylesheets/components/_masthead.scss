@@ -26,7 +26,26 @@
 
 	ul {
 		display: flex;
+		
 	}
+
+	li:hover{
+		text-decoration: underline;
+	}
+
+	li:first-of-type {
+		a {
+			font-weight: bold;
+		}
+	}
+}
+
+.white-line{
+	content: "";
+	align-self: flex-start;
+	border-bottom: 1px solid $light-gray;
+	height: 1px;
+	width: auto;
 }
 
 .logo {
@@ -54,10 +73,6 @@
 		border: none;
 	}
 
-	button:hover {
-		background-color: $lightest-gray;
-	}
-
 	a,
 	button, 
 	time {
@@ -71,4 +86,17 @@
 	strong {
 		color: green;
 	}
+
+	.degreeorstock:hover {
+		background-color: $lightest-gray;
+	}
+
+	.paperorvideo:hover{
+		text-decoration: underline;
+	}
+
+	li:last-of-type{
+		border-right: none;
+	}
+
 }

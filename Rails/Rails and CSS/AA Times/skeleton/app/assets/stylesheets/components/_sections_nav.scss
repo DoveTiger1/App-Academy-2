@@ -1,0 +1,23 @@
+.sections{
+    border-bottom: 1px solid $light-gray;
+}
+
+.country-links{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: $sans-serif;
+
+    li{
+        margin: 10px 16px;
+    }
+
+    a:hover{
+        background-color: $light-gray;
+    }
+
+    li:last-of-type{
+        text-decoration: underline;
+        text-transform: uppercase;
+    }
+}

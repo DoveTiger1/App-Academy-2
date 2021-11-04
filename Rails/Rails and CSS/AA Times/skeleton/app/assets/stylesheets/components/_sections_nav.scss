@@ -21,3 +21,9 @@
         text-transform: uppercase;
     }
 }
+
+@media all and (max-width: 1000px) {
+  .sections{
+    display: none;
+  }
+}

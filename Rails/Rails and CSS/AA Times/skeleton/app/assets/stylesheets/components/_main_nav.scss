@@ -50,3 +50,18 @@
 .right-nav > ul > li:last-of-type:hover {
   background-color: $lightest-gray;
 }
+
+@media all and (max-width: 1000px) {
+  #subscribe-btn, #login-btn{
+    display: none;
+  }
+
+  .left-nav{
+    > ul{
+      > li{
+        margin-left: 0px;
+        margin-right: 0px;
+      }
+    }
+  }
+}
